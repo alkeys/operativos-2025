@@ -10,7 +10,7 @@ const MAIN_TITLE_COLOR = "text-slate-900"
 const SUBTITLE_COLOR = "text-blue-600"
 const BACKGROUND_COLOR = "bg-gradient-to-b from-slate-50 to-blue-50"
 const ACCENT_COLOR = "bg-blue-600"
-const ACCENT_HOVER = "hover:bg-blue-700"
+
 
 const barcelonaLogo = logoBarcelona
 
