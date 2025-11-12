@@ -7,7 +7,7 @@ interface PhotoCardProps {
   isLoaded?: boolean
 }
 
-export default function PhotoCard({ firstName, carnet, imageUrl, isLoaded = false }: PhotoCardProps) {
+export default function PhotoCard({ firstName, carnet, imageUrl }: PhotoCardProps) {
   return (
     <div className="group cursor-pointer h-full">
       <div
