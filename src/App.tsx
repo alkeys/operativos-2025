@@ -5,7 +5,7 @@ import PhotoCard from "./components/PhotoCard"
 
 const placeholderImage = "/placeholder.svg"
 import barcelonaLogo from "./assets/barcelona-logo.png"
-import  acevedoImage from "./assets/Acevedo.png"
+import  acevedoImage from "./assets/Acevedo.jpg"
 import CM17145f from "./assets/CM17145.jpg"
 import AM18007f from "./assets/AM18007.png"
 
