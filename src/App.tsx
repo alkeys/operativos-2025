@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import PhotoCard from "./components/PhotoCard"
 
 const placeholderImage = "/placeholder.svg"
-import barcelonaLogo from "./assets/barcelona-logo.png"
+// MODIFICACIÓN: Importa la nueva imagen premium
+import barcelonaLogoPremium from "./assets/barcelona-logo.png" // <--- ¡Asegúrate de que esta ruta sea correcta y el archivo exista!
 import acevedoImage from "./assets/Acevedo.jpg"
 import CM17145f from "./assets/CM17145.jpg"
 import AM18007f from "./assets/AM18007.png"
@@ -42,6 +43,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-violet-50 font-sans overflow-hidden">
+      {/* Fondo animado */}
       <div className="fixed inset-0 -z-10 opacity-20" aria-hidden="true">
         <div className="absolute top-0 left-[10%] w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
         <div className="absolute top-0 right-[10%] w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
@@ -119,6 +121,7 @@ export default function Page() {
           </div>
         </section>
 
+        {/* SECCIÓN BARCELONA FC MODIFICADA */}
         <section
           className={`mt-20 sm:mt-28 lg:mt-40 pt-16 sm:pt-20 lg:pt-24 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
@@ -134,38 +137,51 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="relative group">
+            {/* INICIO DEL CONTENEDOR MEJORADO (GLASSMORPHISM & TECH RINGS) */}
+            <div className="relative group w-full max-w-md mx-auto">
+              {/* 1. Efecto de brillo ambiental trasero (Azul y Grana) */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 rounded-[3rem] opacity-20 group-hover:opacity-60 blur-2xl transition-all duration-700 group-hover:scale-110" />
+              
+              {/* 2. Tarjeta Principal (Efecto Cristal) */}
               <div
-                className="relative bg-gradient-to-br from-white via-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-transparent bg-clip-padding transition-all duration-500 group-hover:border-orange-400 group-hover:shadow-2xl group-hover:shadow-orange-200/50"
-                style={{
-                  borderImage: "linear-gradient(135deg, #3b82f6, #6366f1, #f97316) 1",
-                  animation: isLoaded ? "float 6s ease-in-out infinite" : "none",
-                }}
+                className="relative aspect-square rounded-[2.5rem] overflow-hidden transition-all duration-500 transform group-hover:-translate-y-2 shadow-xl group-hover:shadow-2xl group-hover:shadow-blue-500/20 bg-white/60 backdrop-blur-xl border border-white/50"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-orange-400/10 pointer-events-none" />
+                {/* Brillo superior (reflejo de luz) */}
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/80 via-transparent to-transparent opacity-50 pointer-events-none z-20" />
 
-                <div className="aspect-square  border-8 border-white rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-lg mx-auto
-                 flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 
-                 group-hover:scale-105 transition-transform duration-500 relative z-10">
-                  <div className="relative w-full h-full max-w-sm">
-                    <div
-                      className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500 to-violet-500 opacity-20"
-                      style={{ animation: "spin 8s linear infinite" }}
-                    />
-                    <div
-                      className="absolute inset-2 rounded-full border-2 border-transparent bg-gradient-to-r from-orange-500 to-pink-500 opacity-20"
-                      style={{ animation: "spin 6s linear reverse" }}
-                    />
+                <div className="w-full h-full flex items-center justify-center p-8 sm:p-12 relative z-10">
+                  <div className="relative w-full h-full max-w-sm flex items-center justify-center">
+                    
+                    {/* 3. Anillos giratorios mejorados (Tech/Futurista) */}
+                    {/* Anillo Exterior (Azul) */}
+                    <div className="absolute w-[120%] h-[120%] rounded-full border border-blue-500/30 border-t-blue-500 border-r-transparent shadow-[0_0_30px_rgba(59,130,246,0.3)]" 
+                         style={{ animation: "spin 10s linear infinite" }} />
+                         
+                    {/* Anillo Interior (Grana/Rojo) - Gira al revés */}
+                    <div className="absolute w-[90%] h-[90%] rounded-full border border-red-500/30 border-b-red-500 border-l-transparent shadow-[0_0_30px_rgba(239,68,68,0.3)]" 
+                         style={{ animation: "spin 7s linear infinite reverse" }} />
 
+                    {/* Orbe central de fondo (para dar profundidad) */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/50 to-red-100/50 rounded-full blur-3xl animate-pulse" />
+
+                    {/* 4. Imagen del Escudo - AHORA USA barcelonaLogoPremium */}
                     <img
-                      src={barcelonaLogo || placeholderImage}
+                      src={barcelonaLogoPremium || placeholderImage} // <--- CAMBIO AQUÍ
                       alt="Escudo del Fútbol Club Barcelona"
-                      className="w-full h-full object-contain relative z-10 "
+                      className="w-full h-full object-contain relative z-30 drop-shadow-2xl
+                       transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3
+                       border-8 border-white/70 rounded-full
+                       "
+                      style={{ 
+                        filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.15))" 
+                      }}
                     />
                   </div>
                 </div>
               </div>
             </div>
+            {/* FIN DEL CONTENEDOR MEJORADO */}
+
           </div>
         </section>
       </main>
